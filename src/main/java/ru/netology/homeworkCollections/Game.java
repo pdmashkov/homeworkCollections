@@ -1,18 +1,18 @@
 package ru.netology.homeworkCollections;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Game {
-    private ArrayList<Player> players = new ArrayList<>();
+    private HashMap<String, Player> players = new HashMap<>();
 
     public void register(Player player) {
-        players.add(player);
+        players.put(player.getName(), player);
     }
 
     public Player findByName(String playerName) {
-        for (Player player : players) {
-            if (player.getName().equals(playerName)) {
-                return player;
+        for (String key : players.keySet()) {
+            if (players.get(key).getName().equals(playerName)) {
+                return players.get(key);
             }
         }
 
